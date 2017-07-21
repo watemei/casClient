@@ -1,0 +1,269 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.cj</groupId>
+  <artifactId>casClient2</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>casClient Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+		<!-- 说明：下划线“_”表示artifactId，没有下划线表示groupId，结尾都是“-version” -->
+		<!-- spring 框架版本 -->
+		<org.springframework-version>4.2.8.RELEASE</org.springframework-version>
+		<!-- hibernate 框架版本 -->
+		<org.hibernate-version>5.0.10.Final</org.hibernate-version>
+		
+		<org.hibernate.common-version>5.0.1.Final</org.hibernate.common-version>
+		<org.aspectj-version>1.8.7</org.aspectj-version>
+		<mysql-connector-version>5.1.38</mysql-connector-version>
+		<com.alibaba_druid-version>1.0.15</com.alibaba_druid-version>
+		<commons-logging-version>1.1</commons-logging-version>
+		<jdk-version>1.8</jdk-version>
+		<_javax.servlet-api-version>3.1.0</_javax.servlet-api-version>
+		<jstl-version>1.2</jstl-version>
+		
+		<slf4j.version>1.6.6</slf4j.version>
+		<log4j.version>1.2.12</log4j.version>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>nexus-aliyun</id>
+			<name>Nexus aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	
+  <dependencies>
+     <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- begin spring 核心依赖包 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- end spring 核心依赖包 -->
+
+
+		<!-- begin spring mvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!-- end spring mvc -->
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>
+
+		<!-- begin javax.servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${_javax.servlet-api-version}</version>
+		</dependency>
+		<!-- end javax.servlet -->
+ 
+		<!-- start commons -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.0</version>
+		</dependency>
+
+		<!-- end commons -->
+		<dependency>
+			<groupId>commons-chain</groupId>
+			<artifactId>commons-chain</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.9.1.RELEASE</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.7</version>
+		</dependency>
+
+		<dependency>
+	      <groupId>javax.transaction</groupId>
+	      <artifactId>jta</artifactId>
+	      <version>1.1</version>
+	  </dependency>
+	  
+		
+			<!-- begin redis -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<!-- end redis -->
+
+	<dependency>
+		<groupId>org.springframework.data</groupId>
+		<artifactId>spring-data-redis</artifactId>
+		<version>1.6.2.RELEASE</version>
+	</dependency>
+	
+ <dependency>
+	<groupId>commons-collections</groupId>
+	<artifactId>commons-collections</artifactId>
+	<version>3.2.2</version>
+</dependency>
+
+ <!-- <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency> 
+		
+<dependency>
+    <groupId>org.jasig.cas.client</groupId>
+    <artifactId>cas-client-core</artifactId>
+    <version>3.4.1</version>
+</dependency>
+
+  </dependencies>
+  <build>
+    <finalName>casClient2</finalName>
+       <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		
+    	<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>${jdk-version}</source>
+					<target>${jdk-version}</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.2</version>
+				<configuration>
+					<forkMode>once</forkMode>
+					<argLine>-Dfile.encoding=UTF-8</argLine>
+					<!-- <systemProperties> -->
+					<!-- <property> -->
+					<!-- <name>net.sourceforge.cobertura.datafile</name> -->
+					<!-- <value>target/cobertura/cobertura.ser</value> -->
+					<!-- </property> -->
+					<!-- </systemProperties> -->
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>  
+    
+		</plugins>
+  </build>
+</project>

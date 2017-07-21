@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+ <!-- 使用方案1 -->
+    <!-- <context:property-placeholder location="classpath:schemeone/properties/common/*.properties" ignore-unresolvable="true"/> -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:schemeone/properties/common/*.properties</value>
+			</list>
+		</property>
+	</bean>
+   	<import resource="classpath*:schemeone/xml/spring-core.xml"/>
+    <import resource="classpath*:schemeone/xml/spring-mvc.xml"/>
+</beans>

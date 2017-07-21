@@ -1,0 +1,12 @@
+﻿访问地址(没有登录时会被拦截)：
+http://localhost:8080/casClient/
+http://localhost:8080/casClient/index
+http://localhost:8080/casClient/demo/test
+
+访问静态资源则不会被拦截：
+http://localhost:8080/casClient/staticres/js/login/login.js
+
+你自己跑的时候需要修改web.xml里的相关配置，主要是IP地址和端口
+
+请看博客：
+http://blog.csdn.net/pucao_cug/article/details/70182968
